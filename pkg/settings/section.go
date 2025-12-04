@@ -3,6 +3,7 @@ package settings
 type Config struct {
 	Mysql  MySQLSetting `mapstructure:"mysql"` // mapstructure ở đây nghĩa là trỏ tới file local.yaml
 	Logger LogSetting   `mapstructure:"logger"`
+	Redis  RedisSetting `mapstructure:"redis"`
 }
 
 type MySQLSetting struct {
@@ -23,4 +24,11 @@ type LogSetting struct {
 	Max_backups   int    `mapstructure:"max_backups"`
 	Max_age       int    `mapstructure:"max_age"`
 	Compress      bool   `mapstructure:"compress"`
+}
+
+type RedisSetting struct {
+	Host     string `mapstructure:"host"`
+	Port     int    `mapstructure:"port"`
+	Password string `mapstructure:"password"`
+	Database int    `mapstructure:"database"`
 }
