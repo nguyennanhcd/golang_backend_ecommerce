@@ -1,1 +1,3 @@
 {"level":"INFO","time":"2025-11-28T16:54:49.201+0700","caller":"initialize/run.go:17","msg":"Config log ok!","oke":"success"}
+{"level":"INFO","time":"2025-12-07T22:25:44.916+0700","caller":"initialize/run.go:19","msg":"Config log ok!","oke":"success"}
+{"level":"ERROR","time":"2025-12-07T22:25:44.917+0700","caller":"initialize/mysql.go:16","msg":"mysql error","error":"dial tcp [::1]:3306: connect: connection refused"}
