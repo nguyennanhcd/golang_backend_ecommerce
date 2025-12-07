@@ -1,9 +1,15 @@
 package settings
 
 type Config struct {
-	Mysql  MySQLSetting `mapstructure:"mysql"` // mapstructure ở đây nghĩa là trỏ tới file local.yaml
-	Logger LogSetting   `mapstructure:"logger"`
-	Redis  RedisSetting `mapstructure:"redis"`
+	Server ServerSetting `mapstructure:"server"`
+	Mysql  MySQLSetting  `mapstructure:"mysql"` // mapstructure ở đây nghĩa là trỏ tới file local.yaml
+	Logger LogSetting    `mapstructure:"logger"`
+	Redis  RedisSetting  `mapstructure:"redis"`
+}
+
+type ServerSetting struct {
+	Port int    `mapstructure:"port"`
+	Mode string `mapstructure:"mode"`
 }
 
 type MySQLSetting struct {
