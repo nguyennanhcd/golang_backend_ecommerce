@@ -1,6 +1,9 @@
 package service
 
-import "GolangBackendEcommerce/internal/repo"
+import (
+	"GolangBackendEcommerce/internal/repo"
+	"GolangBackendEcommerce/pkg/response"
+)
 
 // type UserService struct {
 // 	userRepo *repo.UserRepo
@@ -28,8 +31,12 @@ type userService struct {
 }
 
 // Register implements IUserService.
-func (u *userService) Register(email string, purpose string) int {
-	panic("unimplemented")
+func (us *userService) Register(email string, purpose string) int {
+	// check email exists or not
+	if us.userRepo.GetUserByEmail(email, purpose) {
+		return response.ErrCodeUserHasExist
+	}
+	return response.ErrCodeSuccess
 }
 
 func NewUserService(userRepo repo.IUserRepository) IUserService {
