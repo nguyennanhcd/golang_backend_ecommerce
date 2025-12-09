@@ -24,20 +24,20 @@ import (
 // 	// 	return
 // 	// }
 // 	// response.SuccessResponse(c, 20001, []string{"User1", "User2"})
-
+// 	result := uc.userService.GetUserByEmail("email", "purpose")
 // }
 
-type userController struct {
+type UserController struct {
 	userService service.IUserService
 }
 
-func NewUserController(userService service.IUserService) *userController {
-	return &userController{
+func NewUserController(userService service.IUserService) *UserController {
+	return &UserController{
 		userService: userService,
 	}
 }
 
-func (uc *userController) Register(c *gin.Context) {
+func (uc *UserController) Register(c *gin.Context) {
 	result := uc.userService.Register("email", "purpose")
 	response.SuccessResponse(c, result, nil)
 }

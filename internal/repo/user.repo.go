@@ -16,13 +16,14 @@ type IUserRepository interface {
 	GetUserByEmail(email string, purpose string) bool
 }
 
-type userRepository struct{}
+type UserRepository struct {
+}
 
 // GetUserByEmail implements IUserRepository.
-func (u *userRepository) GetUserByEmail(email string, purpose string) bool {
+func (u *UserRepository) GetUserByEmail(email string, purpose string) bool {
 	panic("unimplemented")
 }
 
 func NewUserRepository() IUserRepository {
-	return &userRepository{}
+	return &UserRepository{}
 }
